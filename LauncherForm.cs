@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace WSE2_Launcher
 {
-    public partial class LauncherForm : Form
+    public partial class LauncherForm : PerPixelAlphaForm
     {
         public LauncherForm()
         {
             InitializeComponent();
+
+            this.SelectBitmap(Properties.Resources.background);
+
         }
     }
 }
