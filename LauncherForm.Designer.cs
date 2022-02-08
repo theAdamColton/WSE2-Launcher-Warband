@@ -29,23 +29,37 @@ namespace WSE2_Launcher
         /// </summary>
         private void InitializeComponent()
         {
+            this.closeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // closeButton
+            // 
+            this.closeButton.Font = new System.Drawing.Font("MV Boli", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.Location = new System.Drawing.Point(188, 108);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(374, 207);
+            this.closeButton.TabIndex = 0;
+            this.closeButton.Text = "X";
+            this.closeButton.UseVisualStyleBackColor = true;
             // 
             // LauncherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WSE2_Launcher.Properties.Resources.background;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.closeButton);
             this.DoubleBuffered = true;
             this.Name = "LauncherForm";
             this.Text = "Form1";
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button closeButton;
     }
 }
 

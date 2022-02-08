@@ -17,7 +17,7 @@ namespace WSE2_Launcher
             InitializeComponent();
 
             this.SelectBitmap(Properties.Resources.background);
-
+            this.closeButton.BringToFront();
         }
     }
 }

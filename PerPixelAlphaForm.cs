@@ -23,15 +23,10 @@ namespace WSE2_Launcher
         public PerPixelAlphaForm()
         {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.ShowInTaskbar = false;
+            //this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.Load += PerPixelAlphaForm_Load;
         }
 
-        void PerPixelAlphaForm_Load(object sender, EventArgs e)
-        {
-            this.TopMost = true;
-        }
         protected override CreateParams CreateParams
         {
             get
