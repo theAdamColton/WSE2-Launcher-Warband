@@ -14,6 +14,8 @@ namespace WSE2_Launcher
             this.FlatAppearance.BorderSize = 0;
             this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ForeColor = System.Drawing.Color.Transparent;
+            this.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.TabIndex = 0;
             this.TabStop = false;
             this.UseVisualStyleBackColor = false;
