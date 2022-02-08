@@ -12,8 +12,6 @@ namespace WSE2_Launcher
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.FlatAppearance.BorderSize = 0;
-            this.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ForeColor = System.Drawing.Color.Transparent;
             this.TabIndex = 0;

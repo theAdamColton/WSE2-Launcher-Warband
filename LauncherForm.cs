@@ -30,5 +30,10 @@ namespace WSE2_Launcher
         {
             Close();
         }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }
