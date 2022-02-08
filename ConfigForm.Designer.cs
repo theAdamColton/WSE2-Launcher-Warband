@@ -30,44 +30,48 @@ namespace WSE2_Launcher
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.settingsTabControl = new System.Windows.Forms.TabControl();
+            this.gamePage = new System.Windows.Forms.TabPage();
+            this.videoPage = new System.Windows.Forms.TabPage();
             this.okButton = new WSE2_Launcher.ImageButton();
             this.closeButton = new WSE2_Launcher.ImageButton();
             this.Cancel = new WSE2_Launcher.ImageButton();
-            this.tabControl1.SuspendLayout();
+            this.audioPage = new System.Windows.Forms.TabPage();
+            this.advancedPage = new System.Windows.Forms.TabPage();
+            this.settingsTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // settingsTabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 49);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(438, 361);
-            this.tabControl1.TabIndex = 1;
+            this.settingsTabControl.Controls.Add(this.gamePage);
+            this.settingsTabControl.Controls.Add(this.videoPage);
+            this.settingsTabControl.Controls.Add(this.audioPage);
+            this.settingsTabControl.Controls.Add(this.advancedPage);
+            this.settingsTabControl.Location = new System.Drawing.Point(12, 49);
+            this.settingsTabControl.Name = "settingsTabControl";
+            this.settingsTabControl.SelectedIndex = 0;
+            this.settingsTabControl.Size = new System.Drawing.Size(438, 361);
+            this.settingsTabControl.TabIndex = 1;
             // 
-            // tabPage1
+            // gamePage
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(430, 335);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.gamePage.Location = new System.Drawing.Point(4, 22);
+            this.gamePage.Name = "gamePage";
+            this.gamePage.Padding = new System.Windows.Forms.Padding(3);
+            this.gamePage.Size = new System.Drawing.Size(430, 335);
+            this.gamePage.TabIndex = 0;
+            this.gamePage.Text = "Game";
+            this.gamePage.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // videoPage
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(350, 305);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.videoPage.Location = new System.Drawing.Point(4, 22);
+            this.videoPage.Name = "videoPage";
+            this.videoPage.Padding = new System.Windows.Forms.Padding(3);
+            this.videoPage.Size = new System.Drawing.Size(430, 335);
+            this.videoPage.TabIndex = 1;
+            this.videoPage.Text = "Video";
+            this.videoPage.UseVisualStyleBackColor = true;
             // 
             // okButton
             // 
@@ -102,9 +106,9 @@ namespace WSE2_Launcher
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.Font = new System.Drawing.Font("Mordred", 12.25F, System.Drawing.FontStyle.Bold);
             this.closeButton.ForeColor = System.Drawing.Color.Transparent;
-            this.closeButton.Location = new System.Drawing.Point(375, 12);
+            this.closeButton.Location = new System.Drawing.Point(377, 0);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(49, 46);
+            this.closeButton.Size = new System.Drawing.Size(53, 54);
             this.closeButton.TabIndex = 0;
             this.closeButton.TabStop = false;
             this.closeButton.UseVisualStyleBackColor = false;
@@ -131,6 +135,24 @@ namespace WSE2_Launcher
             this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
+            // audioPage
+            // 
+            this.audioPage.Location = new System.Drawing.Point(4, 22);
+            this.audioPage.Name = "audioPage";
+            this.audioPage.Size = new System.Drawing.Size(430, 335);
+            this.audioPage.TabIndex = 2;
+            this.audioPage.Text = "Audio";
+            this.audioPage.UseVisualStyleBackColor = true;
+            // 
+            // advancedPage
+            // 
+            this.advancedPage.Location = new System.Drawing.Point(4, 22);
+            this.advancedPage.Name = "advancedPage";
+            this.advancedPage.Size = new System.Drawing.Size(430, 335);
+            this.advancedPage.TabIndex = 3;
+            this.advancedPage.Text = "Advanced";
+            this.advancedPage.UseVisualStyleBackColor = true;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,14 +162,14 @@ namespace WSE2_Launcher
             this.ClientSize = new System.Drawing.Size(462, 466);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.okButton);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.settingsTabControl);
             this.Controls.Add(this.closeButton);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConfigForm";
             this.ShowInTaskbar = false;
             this.Text = "ConfigForm";
-            this.tabControl1.ResumeLayout(false);
+            this.settingsTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -155,10 +177,12 @@ namespace WSE2_Launcher
         #endregion
 
         private ImageButton closeButton;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl settingsTabControl;
+        private System.Windows.Forms.TabPage gamePage;
+        private System.Windows.Forms.TabPage videoPage;
         private ImageButton okButton;
         private ImageButton Cancel;
+        private System.Windows.Forms.TabPage audioPage;
+        private System.Windows.Forms.TabPage advancedPage;
     }
 }

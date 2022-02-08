@@ -7,12 +7,13 @@ namespace WSE2_Launcher
     class ImageButton : Button
     {
 
-        static Color selectedColor = Color.Black;
-        static Color latentColor = Color.Red;
+        static Color selectedColor = Color.Red;
+        static Color latentColor = Color.Black;
 
         public ImageButton()
         {
             this.BackColor = System.Drawing.Color.Transparent;
+            this.ForeColor = latentColor;
             this.Text = null;
             this.BackgroundImage = Properties.Resources.closebutton;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
