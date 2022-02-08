@@ -1,23 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WSE2_Launcher
 {
-    public partial class LauncherForm : PerPixelAlphaForm
+    public partial class LauncherForm : Form
     {
+        //private PerPixelAlphaForm background;
+        private FormBackground background;
         public LauncherForm()
         {
             InitializeComponent();
 
-            this.SelectBitmap(Properties.Resources.background);
-            this.closeButton.BringToFront();
+            //remove this form's background, because it causes weird graphics
+            this.BackgroundImage = null;
+            this.background = new FormBackground(Properties.Resources.background, this);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            //support dragging the window
+            if (m.Msg == ApiHelper.WM_NCHITTEST && (int)m.Result == ApiHelper.HTCLIENT)
+            {
+                m.Result = new IntPtr(ApiHelper.HTCAPTION);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

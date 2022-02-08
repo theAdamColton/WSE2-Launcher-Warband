@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace WSE2_Launcher
 {
     partial class LauncherForm
@@ -29,37 +31,38 @@ namespace WSE2_Launcher
         /// </summary>
         private void InitializeComponent()
         {
-            this.closeButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // closeButton
+            // button1
             // 
-            this.closeButton.Font = new System.Drawing.Font("MV Boli", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeButton.Location = new System.Drawing.Point(188, 108);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(374, 207);
-            this.closeButton.TabIndex = 0;
-            this.closeButton.Text = "X";
-            this.closeButton.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(406, 166);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 76);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Close";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // LauncherForm
+            // frmSplash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.closeButton);
-            this.DoubleBuffered = true;
-            this.Name = "LauncherForm";
+            this.BackColor = System.Drawing.Color.Gold;
+            this.BackgroundImage = Properties.Resources.background;
+            this.ClientSize = new System.Drawing.Size(834, 514);
+            this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmSplash";
             this.Text = "Form1";
-            this.TopMost = true;
+            this.TransparencyKey = System.Drawing.Color.Gold;
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
