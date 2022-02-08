@@ -50,8 +50,8 @@
     <Compile Include="FormBackground.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PerPixelAlphaForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ImageButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="LauncherForm.cs">
       <SubType>Form</SubType>
@@ -92,6 +92,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="closebutton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
