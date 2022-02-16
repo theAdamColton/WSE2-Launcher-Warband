@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSE2 Launcher View", "WSE2 Launcher View.csproj", "{A4734ED7-C385-4971-AD44-CDB3EA89034F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSE2 Launcher View", "WSE2 Launcher\WSE2 Launcher View.csproj", "{A4734ED7-C385-4971-AD44-CDB3EA89034F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Config Controller", "Config Controller\Config Controller.csproj", "{B1E2AD1E-C95F-4021-AC9D-9D2F963A76E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config Tests", "Config Tests\Config Tests.csproj", "{822CB7AA-D884-405D-AC6B-EFF0944F53C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{A4734ED7-C385-4971-AD44-CDB3EA89034F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4734ED7-C385-4971-AD44-CDB3EA89034F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4734ED7-C385-4971-AD44-CDB3EA89034F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1E2AD1E-C95F-4021-AC9D-9D2F963A76E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E2AD1E-C95F-4021-AC9D-9D2F963A76E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E2AD1E-C95F-4021-AC9D-9D2F963A76E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E2AD1E-C95F-4021-AC9D-9D2F963A76E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822CB7AA-D884-405D-AC6B-EFF0944F53C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822CB7AA-D884-405D-AC6B-EFF0944F53C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822CB7AA-D884-405D-AC6B-EFF0944F53C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822CB7AA-D884-405D-AC6B-EFF0944F53C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

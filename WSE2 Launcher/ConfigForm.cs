@@ -30,7 +30,6 @@ namespace WSE2_Launcher
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -40,7 +39,7 @@ namespace WSE2_Launcher
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

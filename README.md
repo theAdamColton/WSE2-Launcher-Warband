@@ -13,3 +13,7 @@ Add command line argument controller. Should have the following options:
 ```
 
 Add warband config editing through ini controller. This will need to at least edit all of the base game options in the 'Configuration' view.
+
+### rgl config editor
+- Saves settings to the ini file at `C:\Users\<user>\Documents\Mount&Blade Warband\rgl_config.txt`, using Environment.SpecialFolder.UserProfile
+- 
