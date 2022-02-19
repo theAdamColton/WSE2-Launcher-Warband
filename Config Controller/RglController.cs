@@ -1,9 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
-using System.Text;
-using System.Runtime.InteropServices;
-using System.Text;
+using System.IO;
 using System.Text.RegularExpressions;
 
 namespace Config_Controller
@@ -15,8 +12,6 @@ namespace Config_Controller
 
         public static RglConfig ReadSettings()
         {
-            INIFile inifile = new INIFile(DefaultPath);
-
             return ReadSettings(DefaultPath);
         }
 
@@ -30,21 +25,30 @@ namespace Config_Controller
 
             RglConfig conf = new RglConfig();
 
-            foreach (string line in File.ReadLines(path)) {
+            foreach (string line in File.ReadLines(path))
+            {
                 Console.Write("Reading line: ");
                 if (line == "")
                 {
                     continue;
                 }
                 string[] splits = Regex.Split(line, " = ");
+                if (splits.Length < 2)
+                {
+                    Console.WriteLine("Error parsing line");
+                    continue;
+                }
+
+
                 Console.Write("[");
                 foreach (string s in splits)
                 {
-                    Console.Write("\"{0}\", ",s);
+                    Console.Write("\"{0}\", ", s);
                 }
                 Console.WriteLine("]");
 
-                if (!conf.entries.ContainsKey(splits[0])) {
+                if (!conf.entries.ContainsKey(splits[0]))
+                {
                     conf.entries.Add(splits[0], splits[1]);
                 }
                 else
@@ -63,57 +67,34 @@ namespace Config_Controller
 
         public static bool WriteSettings(RglConfig config, string path)
         {
-            INIFile inifile = new INIFile(path);
-
-            foreach (KeyValuePair<String, String> keyValue in config.entries) {
-                Console.WriteLine("Saving {0}{1}", keyValue.Key, keyValue.Value);
-                try
+            try
+            {
+                using (StreamWriter st = File.CreateText(path))
                 {
-                    inifile.IniWriteValue("", keyValue.Key, keyValue.Value);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Error Writing setting \"{0}\"! Exiting", e);
-                    return false;
+                    foreach (KeyValuePair<String, String> keyValue in config.entries)
+                    {
+                        Console.WriteLine("Saving {0} = {1}", keyValue.Key, keyValue.Value);
+                        st.WriteLine(String.Format("{0} = {1}", keyValue.Key, keyValue.Value));
+                    }
                 }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error Writing setting \"{0}\"! Exiting", e);
+                return false;
+            }
+
             return true;
         }
 
-    }
+}
 
-    /// <summary>
-    /// The Warband config file, rgl_config.txt is basically an ini file, 
-    /// but it has no `[section]` section markers.
-    /// </summary>
-    public class RglConfig
-    {
-        public Dictionary<String, String> entries = new Dictionary<string, string>();
-    }
-
-    public class INIFile
-    {
-        public string path { get; private set; }
-
-        [DllImport("kernel32")]
-        private static extern long WritePrivateProfileString(string section, string key,string val,string filePath);
-        [DllImport("kernel32")]
-        private static extern int GetPrivateProfileString(string section, string key,string def, StringBuilder retVal, int size,string filePath);
-
-        public INIFile(string INIPath)
-        {
-            path = INIPath;
-        }
-        public void IniWriteValue(string Section, string Key, string Value)
-        {
-            WritePrivateProfileString(Section, Key, Value, this.path);
-        }
-        
-        public string IniReadValue(string Section,string Key)
-        {
-            StringBuilder temp = new StringBuilder(255);
-            int i = GetPrivateProfileString(Section, Key, "", temp, 255, this.path);
-            return temp.ToString();
-        }
-    }
+/// <summary>
+/// The Warband config file, rgl_config.txt is basically an ini file, 
+/// but it has no `[section]` section markers.
+/// </summary>
+public class RglConfig
+{
+    public Dictionary<String, String> entries = new Dictionary<string, string>();
+}
 }
