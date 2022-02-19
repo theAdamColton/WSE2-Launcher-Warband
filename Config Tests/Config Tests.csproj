@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Config Controller\Config Controller.csproj" />
+    <ProjectReference Include="..\ConfigController\ConfigController.csproj" />
   </ItemGroup>
 
 </Project>

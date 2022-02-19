@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace Config_Controller
+namespace ConfigController
 {
     /// <summary>
     /// The Warband config file, rgl_config.txt is basically an ini file, 
@@ -13,8 +13,7 @@ namespace Config_Controller
     {
         public Dictionary<String, String> entries = new Dictionary<string, string>();
 
-        private static string DefaultPath = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @"\Documents\Mount&Blade Warband\rgl_config.txt");
-
+        private static string DefaultPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Documents\Mount&Blade Warband\rgl_config.txt";
 
         public static RglConfig ReadSettings()
         {
@@ -95,3 +94,4 @@ namespace Config_Controller
 
     }
 }
+

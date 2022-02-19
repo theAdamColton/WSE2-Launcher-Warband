@@ -7,6 +7,7 @@ namespace WSE2_Launcher
     {
         //private PerPixelAlphaForm background;
         private FormBackground background;
+
         public LauncherForm()
         {
             InitializeComponent();

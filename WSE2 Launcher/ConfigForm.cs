@@ -1,13 +1,22 @@
-﻿using System;
+﻿using ConfigController;
+using System;
 using System.Windows.Forms;
 
 namespace WSE2_Launcher
 {
     public partial class ConfigForm : Form
     {
+        private RglConfig config;
+
         public ConfigForm()
         {
             InitializeComponent();
+
+            languageBox.Items.AddRange(new string[] { "Cesky", "English", "Deutsch", "Espanol", "Francais", "Magyar", "Polski", "Russkiy", "Turkce" });
+
+            // Here is where you could set the custom path of the rgl_config.txt
+            // By default it is ~/Documents/Mount&Blade....
+            config = RglConfig.ReadSettings();
         }
 
         protected override void WndProc(ref Message m)
@@ -33,6 +42,16 @@ namespace WSE2_Launcher
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

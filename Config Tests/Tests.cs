@@ -1,4 +1,4 @@
-using Config_Controller;
+using ConfigController;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace Config_Tests
         public void TestReadSimpleSettings()
         {
             File.WriteAllText("testconf.txt", testvalues);
-            RglConfig conf = RglFile.ReadSettings("testconf.txt");
+            RglConfig conf = RglConfig.ReadSettings("testconf.txt");
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace Config_Tests
         [TestMethod]
         public void TestRead()
         {
-            RglConfig conf = RglFile.ReadSettings();
+            RglConfig conf = RglConfig.ReadSettings();
 
             foreach (KeyValuePair<string, string> kv in conf.entries)
             {
@@ -35,9 +35,9 @@ namespace Config_Tests
         public void TestWrite()
         {
             Console.WriteLine("Current temp dir is {0}", AppDomain.CurrentDomain.BaseDirectory);
-            RglConfig conf = RglFile.ReadSettings();
-            RglFile.WriteSettings(conf, "junk.txt");
-            RglConfig conf2 = RglFile.ReadSettings("junk.txt");
+            RglConfig conf = RglConfig.ReadSettings();
+            RglConfig.WriteSettings(conf, "junk.txt");
+            RglConfig conf2 = RglConfig.ReadSettings("junk.txt");
             Assert.AreEqual(conf.entries.Count, conf2.entries.Count);
             foreach (string k in conf.entries.Keys)
             {
