@@ -8,7 +8,7 @@ namespace WSE2_Launcher
     {
         private RglConfig config;
 
-        public ConfigForm()
+        public ConfigForm(RglConfig conf)
         {
             InitializeComponent();
 
@@ -16,7 +16,7 @@ namespace WSE2_Launcher
 
             // Here is where you could set the custom path of the rgl_config.txt
             // By default it is ~/Documents/Mount&Blade....
-            config = RglConfig.ReadSettings();
+            this.config = conf;
         }
 
         protected override void WndProc(ref Message m)
@@ -44,12 +44,7 @@ namespace WSE2_Launcher
             Close();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void hideBloodBox_CheckedChanged(object sender, EventArgs e)
         {
 
         }

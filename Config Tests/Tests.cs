@@ -25,9 +25,9 @@ namespace Config_Tests
         {
             RglConfig conf = RglConfig.ReadSettings();
 
-            foreach (KeyValuePair<string, string> kv in conf.entries)
+            foreach (KeyValuePair<string, IniEntry> kv in conf.entries)
             {
-                Console.WriteLine("{0} = {1}", kv.Key, kv.Value);
+                Console.WriteLine("{0} = {1}", kv.Key, kv.Value.Value);
             }
         }
 

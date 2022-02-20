@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfigController;
+using System;
 using System.Windows.Forms;
 
 namespace WSE2_Launcher
@@ -7,6 +8,10 @@ namespace WSE2_Launcher
     {
         //private PerPixelAlphaForm background;
         private FormBackground background;
+        /// <summary>
+        /// ReadSettings defaults to the conf file in Documents/Mount&Blade...
+        /// </summary>
+        private RglConfig Config = RglConfig.ReadSettings();
 
         public LauncherForm()
         {
@@ -39,7 +44,7 @@ namespace WSE2_Launcher
 
         private void configureLabel_Click(object sender, EventArgs e)
         {
-            ConfigForm cf = new ConfigForm();
+            ConfigForm cf = new ConfigForm(Config);
             cf.Show();
         }
     }

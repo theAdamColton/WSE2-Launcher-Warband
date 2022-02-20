@@ -130,7 +130,7 @@ namespace WSE2_Launcher
             this.hideBloodBox.TabIndex = 0;
             this.hideBloodBox.Text = "Hide Blood";
             this.hideBloodBox.UseVisualStyleBackColor = true;
-            this.hideBloodBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.hideBloodBox.CheckedChanged += new System.EventHandler(this.hideBloodBox_CheckedChanged);
             // 
             // enableCheatsBox
             // 
