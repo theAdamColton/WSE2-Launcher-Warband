@@ -2,6 +2,7 @@
 using ModuleHelper;
 using System;
 using System.Windows.Forms;
+using WSE2_CLI_Options;
 
 namespace WSE2_Launcher
 {
@@ -117,6 +118,10 @@ namespace WSE2_Launcher
             ModuleEntry selected = (ModuleEntry)moduleSelectBox.SelectedItem;
             Settings.Data["Launcher"]["default_module"] = selected.Name;
             Settings.WriteSettings();
+
+            CLI_Options options = new CLI_Options();
+            options.Module = selected.Name;
+            options.IntroDisabled = Settings.GetSettingOrFalse("Launcher", "intro_disabled");
         }
 
         private void moduleSelectBox_SelectedIndexChanged(object sender, EventArgs e)
