@@ -39,5 +39,10 @@ namespace ModuleHelper
                 return null;
             }
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

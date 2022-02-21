@@ -126,6 +126,10 @@
       <Project>{4b8a43c8-4174-4640-b578-7c9cd910ec0c}</Project>
       <Name>ConfigController</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModuleHelper\ModuleHelper.csproj">
+      <Project>{4044c661-5621-4517-91dc-9236d43a9cc1}</Project>
+      <Name>ModuleHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,34 +21,35 @@ namespace ConfigController
 
     public partial class RglSettings
     {
-        private FileIniDataParser _parser;
+        private static FileIniDataParser _parser;
         public IniData Data;
+        private string _path;
         public bool TestingMode = true;
 
         public RglSettings(string path)
         {
-            _parser = new FileIniDataParser();
+            this._path = path;
+
+            if (_parser is null)
+                _parser = new FileIniDataParser();
+
             this.Data = _parser.ReadFile(path);
+        }
+
+        public RglSettings Clone()
+        {
+             return new RglSettings(_path);
         }
 
         public bool WriteSettings()
         {
-            if (!TestingMode)
-            {
-                return WriteSettings(RglLoader.DefaultPath);
-            }
-            else
-            {
-                return WriteSettings("rgl_junk.ini");
-            }
+            return WriteSettings(_path);
         }
 
         public bool WriteSettings(string path)
         {
             if (_parser is null)
-            {
                 _parser = new FileIniDataParser();
-            }
 
             try
             {

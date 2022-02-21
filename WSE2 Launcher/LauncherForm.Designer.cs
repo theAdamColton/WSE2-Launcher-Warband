@@ -75,6 +75,7 @@ namespace WSE2_Launcher
             this.playLabel.Size = new System.Drawing.Size(52, 29);
             this.playLabel.TabIndex = 3;
             this.playLabel.Text = "Play";
+            this.playLabel.Click += new System.EventHandler(this.playLabel_Click);
             // 
             // minimizeButton
             // 

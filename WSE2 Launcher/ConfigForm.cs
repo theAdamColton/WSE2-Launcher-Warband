@@ -6,17 +6,14 @@ namespace WSE2_Launcher
 {
     public partial class ConfigForm : Form
     {
-        /// <summary>
-        /// ReadSettings defaults to the conf file in Documents/Mount&Blade...
-        /// </summary>
-        private RglSettings Settings = RglLoader.ReadSettings();
+        private RglSettings Settings;
 
-        public ConfigForm()
+        public ConfigForm(RglSettings settings)
         {
+            Settings = settings;
 
             InitializeComponent();
             InitializeUI();
-
         }
 
         private void InitializeUI()
