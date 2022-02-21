@@ -52,6 +52,7 @@ namespace WSE2_Launcher
             this.ShowInTaskbar = false;
             this.Size = bitmap.Size;
             this.SelectBitmap(bitmap);
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
             _offsetx = offsetx;
             _offsety = offsety;
             _parent.Shown += Parent_Shown;

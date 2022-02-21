@@ -28,6 +28,21 @@ namespace Config_Tests
         }
 
         [TestMethod]
+        public void TestDefaultModule()
+        {
+            RglSettings settings = RglLoader.ReadSettings();
+            //Console.WriteLine("bBlood: {0}", settings.bBlood);
+            Console.WriteLine("bBlood: {0}", settings.Data["Battle"]["bBlood"]);
+        }
+
+        [TestMethod]
+        public void TestGetNonexistent()
+        {
+            RglSettings settings = RglLoader.ReadSettings();
+            Console.WriteLine("null: {0}", settings.Data["not"]["existent"]);
+        }
+
+        [TestMethod]
         public void TestGenModules()
         {
             ModuleEntry[] m = ModuleList.GetModuleEntries(module_path);

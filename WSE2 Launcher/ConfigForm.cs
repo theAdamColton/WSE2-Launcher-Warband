@@ -19,7 +19,7 @@ namespace WSE2_Launcher
         private void InitializeUI()
         {
             languageBox.Items.AddRange(new string[] { "Cesky", "English", "Deutsch", "Espanol", "Francais", "Magyar", "Polski", "Russkiy", "Turkce" });
-            hideBloodBox.Checked = Settings.bBlood;
+            hideBloodBox.Checked = !Settings.bBlood;
         }
 
         protected override void WndProc(ref Message m)
@@ -51,7 +51,7 @@ namespace WSE2_Launcher
 
         private void hideBloodBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.Data["Battle"]["bBlood"] = hideBloodBox.Checked.ToString().ToLower();
+            Settings.bBlood = !hideBloodBox.Checked;
         }
     }
 }

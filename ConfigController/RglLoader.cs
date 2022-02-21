@@ -1,6 +1,7 @@
 ﻿using IniParser;
 using IniParser.Model;
 using System;
+using System.IO;
 
 namespace ConfigController
 {
@@ -28,6 +29,8 @@ namespace ConfigController
 
         public RglSettings(string path)
         {
+            if (!File.Exists(path))
+                Console.WriteLine("path doesn't exist");
             this._path = path;
 
             if (_parser is null)
@@ -38,7 +41,7 @@ namespace ConfigController
 
         public RglSettings Clone()
         {
-             return new RglSettings(_path);
+            return new RglSettings(_path);
         }
 
         public bool WriteSettings()
@@ -48,6 +51,7 @@ namespace ConfigController
 
         public bool WriteSettings(string path)
         {
+            Console.WriteLine("Writing to {0}", path);
             if (_parser is null)
                 _parser = new FileIniDataParser();
 
@@ -65,36 +69,42 @@ namespace ConfigController
 
         public bool GetSettingOrFalse(string section, string key)
         {
-            if (Data.TryGetKey(section + ":" + key, out string res))
+            string val = Data[section][key];
+            if (!(val is null))
             {
-                return res.ToLower() == "true";
+                return val.ToLower() == "true";
             }
             else
             {
+                Console.WriteLine("Couldn't find {0}:{1}, returning false", section, key);
                 return false;
             }
         }
 
         public bool GetSettingOrTrue(string section, string key)
         {
-            if (Data.TryGetKey(section + ":" + key, out string res))
+            string val = Data[section][key];
+            if (!(val is null))
             {
-                return res.ToLower() == "true";
+                return val.ToLower() == "true";
             }
             else
             {
+                Console.WriteLine("Couldn't find {0}:{1}, returning true", section, key);
                 return true;
             }
         }
 
         public string GetSettingOrDefault(string section, string key, string _default)
         {
-            if (Data.TryGetKey(section + ":" + key, out string val))
+            string val = Data[section][key];
+            if (!(val is null))
             {
                 return val;
             }
             else
             {
+                Console.WriteLine("Couldn't find {0}:{1}, returning {2}", section, key, _default);
                 return _default;
             }
         }
