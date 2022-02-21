@@ -6,17 +6,23 @@ namespace WSE2_Launcher
 {
     public partial class ConfigForm : Form
     {
-        private RglConfig config;
+        /// <summary>
+        /// ReadSettings defaults to the conf file in Documents/Mount&Blade...
+        /// </summary>
+        private RglSettings Settings = RglLoader.ReadSettings();
 
-        public ConfigForm(RglConfig conf)
+        public ConfigForm()
         {
+
             InitializeComponent();
+            InitializeUI();
 
+        }
+
+        private void InitializeUI()
+        {
             languageBox.Items.AddRange(new string[] { "Cesky", "English", "Deutsch", "Espanol", "Francais", "Magyar", "Polski", "Russkiy", "Turkce" });
-
-            // Here is where you could set the custom path of the rgl_config.txt
-            // By default it is ~/Documents/Mount&Blade....
-            this.config = conf;
+            hideBloodBox.Checked = Settings.bBlood;
         }
 
         protected override void WndProc(ref Message m)
@@ -32,11 +38,13 @@ namespace WSE2_Launcher
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            Cancel_Click(sender, e);
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
-
+            Settings.WriteSettings();
+            closeButton_Click(sender, e);
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -46,7 +54,7 @@ namespace WSE2_Launcher
 
         private void hideBloodBox_CheckedChanged(object sender, EventArgs e)
         {
-
+            Settings.Data["Battle"]["bBlood"] = hideBloodBox.Checked.ToString().ToLower();
         }
     }
 }
