@@ -130,6 +130,10 @@
       <Project>{4044c661-5621-4517-91dc-9236d43a9cc1}</Project>
       <Name>ModuleHelper</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WSE2_CLI_Options\WSE2_CLI_Options.csproj">
+      <Project>{2c797254-b522-4358-a721-910805c36ac6}</Project>
+      <Name>WSE2_CLI_Options</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

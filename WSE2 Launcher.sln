@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigController", "ConfigC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleHelper", "ModuleHelper\ModuleHelper.csproj", "{4044C661-5621-4517-91DC-9236D43A9CC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSE2_CLI_Options", "WSE2_CLI_Options\WSE2_CLI_Options.csproj", "{2C797254-B522-4358-A721-910805C36AC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4044C661-5621-4517-91DC-9236D43A9CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4044C661-5621-4517-91DC-9236D43A9CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4044C661-5621-4517-91DC-9236D43A9CC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C797254-B522-4358-A721-910805C36AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C797254-B522-4358-A721-910805C36AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C797254-B522-4358-A721-910805C36AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C797254-B522-4358-A721-910805C36AC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
