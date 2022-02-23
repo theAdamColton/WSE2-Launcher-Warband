@@ -8,12 +8,10 @@ Add command line argument controller. Should have the following options:
 --module <value> runs this module
 --config-path <value> sets config-path
 --no-intro skips intro videos
---address try connects to server
---password sets password for this connection
 ```
 
 Add warband config editing through ini controller. This will need to at least edit all of the base game options in the 'Configuration' view.
 
 ### rgl config editor
-- Saves settings to the ini file at `C:\Users\<user>\Documents\Mount&Blade Warband\rgl_config.txt`, using Environment.SpecialFolder.UserProfile
-- 
+- Saves settings to the ini file at `C:\Users\<user>\Documents\Mount&Blade Warband WSE2\rgl_config.ini`, using Environment.SpecialFolder.UserProfile
+- Allows editing of settings that require game restart
