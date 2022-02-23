@@ -32,10 +32,10 @@ namespace WSE2_Launcher
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.settingsTabControl = new System.Windows.Forms.TabControl();
             this.gamePage = new System.Windows.Forms.TabPage();
+            this.disableIntroBox = new System.Windows.Forms.CheckBox();
             this.languageBox = new System.Windows.Forms.ComboBox();
             this.languageLabel = new System.Windows.Forms.Label();
-            this.enableVersionCheckBox = new System.Windows.Forms.CheckBox();
-            this.enableCheatsBox = new System.Windows.Forms.CheckBox();
+            this.enableFpsCount = new System.Windows.Forms.CheckBox();
             this.hideBloodBox = new System.Windows.Forms.CheckBox();
             this.videoPage = new System.Windows.Forms.TabPage();
             this.textureBox = new System.Windows.Forms.CheckBox();
@@ -51,7 +51,6 @@ namespace WSE2_Launcher
             this.Cancel = new WSE2_Launcher.ImageButton();
             this.okButton = new WSE2_Launcher.ImageButton();
             this.closeButton = new WSE2_Launcher.ImageButton();
-            this.disableIntroBox = new System.Windows.Forms.CheckBox();
             this.settingsTabControl.SuspendLayout();
             this.gamePage.SuspendLayout();
             this.videoPage.SuspendLayout();
@@ -76,8 +75,7 @@ namespace WSE2_Launcher
             this.gamePage.Controls.Add(this.disableIntroBox);
             this.gamePage.Controls.Add(this.languageBox);
             this.gamePage.Controls.Add(this.languageLabel);
-            this.gamePage.Controls.Add(this.enableVersionCheckBox);
-            this.gamePage.Controls.Add(this.enableCheatsBox);
+            this.gamePage.Controls.Add(this.enableFpsCount);
             this.gamePage.Controls.Add(this.hideBloodBox);
             this.gamePage.Location = new System.Drawing.Point(4, 22);
             this.gamePage.Name = "gamePage";
@@ -86,6 +84,17 @@ namespace WSE2_Launcher
             this.gamePage.TabIndex = 0;
             this.gamePage.Text = "Game";
             this.gamePage.UseVisualStyleBackColor = true;
+            // 
+            // disableIntroBox
+            // 
+            this.disableIntroBox.AutoSize = true;
+            this.disableIntroBox.Location = new System.Drawing.Point(38, 87);
+            this.disableIntroBox.Name = "disableIntroBox";
+            this.disableIntroBox.Size = new System.Drawing.Size(85, 17);
+            this.disableIntroBox.TabIndex = 5;
+            this.disableIntroBox.Text = "Disable Intro";
+            this.disableIntroBox.UseVisualStyleBackColor = true;
+            this.disableIntroBox.CheckedChanged += new System.EventHandler(this.disableIntroBox_CheckedChanged);
             // 
             // languageBox
             // 
@@ -105,25 +114,16 @@ namespace WSE2_Launcher
             this.languageLabel.TabIndex = 3;
             this.languageLabel.Text = "Language:";
             // 
-            // enableVersionCheckBox
+            // enableFpsCount
             // 
-            this.enableVersionCheckBox.AutoSize = true;
-            this.enableVersionCheckBox.Location = new System.Drawing.Point(38, 87);
-            this.enableVersionCheckBox.Name = "enableVersionCheckBox";
-            this.enableVersionCheckBox.Size = new System.Drawing.Size(131, 17);
-            this.enableVersionCheckBox.TabIndex = 2;
-            this.enableVersionCheckBox.Text = "Enable Version Check";
-            this.enableVersionCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // enableCheatsBox
-            // 
-            this.enableCheatsBox.AutoSize = true;
-            this.enableCheatsBox.Location = new System.Drawing.Point(38, 64);
-            this.enableCheatsBox.Name = "enableCheatsBox";
-            this.enableCheatsBox.Size = new System.Drawing.Size(95, 17);
-            this.enableCheatsBox.TabIndex = 1;
-            this.enableCheatsBox.Text = "Enable Cheats";
-            this.enableCheatsBox.UseVisualStyleBackColor = true;
+            this.enableFpsCount.AutoSize = true;
+            this.enableFpsCount.Location = new System.Drawing.Point(38, 64);
+            this.enableFpsCount.Name = "enableFpsCount";
+            this.enableFpsCount.Size = new System.Drawing.Size(122, 17);
+            this.enableFpsCount.TabIndex = 1;
+            this.enableFpsCount.Text = "Enable FPS Counter";
+            this.enableFpsCount.UseVisualStyleBackColor = true;
+            this.enableFpsCount.CheckedChanged += new System.EventHandler(this.enableFpsCounter_CheckedChanged);
             // 
             // hideBloodBox
             // 
@@ -168,6 +168,7 @@ namespace WSE2_Launcher
             this.windowedBox.TabIndex = 3;
             this.windowedBox.Text = "Start Windowed";
             this.windowedBox.UseVisualStyleBackColor = true;
+            this.windowedBox.CheckedChanged += new System.EventHandler(this.windowedBox_CheckedChanged);
             // 
             // usePixelShadersBox
             // 
@@ -314,16 +315,6 @@ namespace WSE2_Launcher
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // disableIntroBox
-            // 
-            this.disableIntroBox.AutoSize = true;
-            this.disableIntroBox.Location = new System.Drawing.Point(38, 110);
-            this.disableIntroBox.Name = "disableIntroBox";
-            this.disableIntroBox.Size = new System.Drawing.Size(85, 17);
-            this.disableIntroBox.TabIndex = 5;
-            this.disableIntroBox.Text = "Disable Intro";
-            this.disableIntroBox.UseVisualStyleBackColor = true;
-            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,8 +354,7 @@ namespace WSE2_Launcher
         private ImageButton Cancel;
         private System.Windows.Forms.TabPage audioPage;
         private System.Windows.Forms.TabPage advancedPage;
-        private System.Windows.Forms.CheckBox enableVersionCheckBox;
-        private System.Windows.Forms.CheckBox enableCheatsBox;
+        private System.Windows.Forms.CheckBox enableFpsCount;
         private System.Windows.Forms.CheckBox hideBloodBox;
         private System.Windows.Forms.Label languageLabel;
         private System.Windows.Forms.ComboBox languageBox;

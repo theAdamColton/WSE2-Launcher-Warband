@@ -16,12 +16,24 @@ namespace WSE2_Launcher
             InitializeUI();
         }
 
+        /// <summary>
+        /// All of the UI elements should be initialized to their value in the RglSettings Settings object,
+        /// as read from the ini file.
+        /// </summary>
         private void InitializeUI()
         {
-            languageBox.Items.AddRange(new string[] { "Cesky", "English", "Deutsch", "Espanol", "Francais", "Magyar", "Polski", "Russkiy", "Turkce" });
-            hideBloodBox.Checked = !Settings.bBlood;
+            // TODO Languages
+            //languageBox.Items.AddRange(new string[] { "Cesky", "English", "Deutsch", "Espanol", "Francais", "Magyar", "Polski", "Russkiy", "Turkce" });
+            hideBloodBox.Checked = !Settings.bBlood.Get();
+            windowedBox.Checked = Settings.bWindowed.Get();
+            disableIntroBox.Checked = Settings.bDisableIntro.Get();
+            enableFpsCount.Checked = Settings.bShowFrameRate.Get();
         }
 
+        /// <summary>
+        /// Allows moving the window by holding down the mouse button
+        /// </summary>
+        /// <param name="m"></param>
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
@@ -31,7 +43,6 @@ namespace WSE2_Launcher
                 m.Result = new IntPtr(ApiHelper.HTCAPTION);
             }
         }
-
 
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -51,7 +62,22 @@ namespace WSE2_Launcher
 
         private void hideBloodBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bBlood = !hideBloodBox.Checked;
+            Settings.bBlood.Set(!hideBloodBox.Checked);
+        }
+
+        private void windowedBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.bWindowed.Set(windowedBox.Checked);
+        }
+
+        private void disableIntroBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.bDisableIntro.Set(disableIntroBox.Checked);
+        }
+
+        private void enableFpsCounter_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.bShowFrameRate.Set(enableFpsCount.Checked);
         }
     }
 }

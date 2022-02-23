@@ -36,7 +36,9 @@ namespace ConfigController
             if (_parser is null)
                 _parser = new FileIniDataParser();
 
-            this.Data = _parser.ReadFile(path);
+            Data = _parser.ReadFile(path);
+
+            InitializeSettings();
         }
 
         public RglSettings Clone()
@@ -64,48 +66,6 @@ namespace ConfigController
             {
                 Console.WriteLine("Caught {0} writing settings!", e);
                 return false;
-            }
-        }
-
-        public bool GetSettingOrFalse(string section, string key)
-        {
-            string val = Data[section][key];
-            if (!(val is null))
-            {
-                return val.ToLower() == "true";
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find {0}:{1}, returning false", section, key);
-                return false;
-            }
-        }
-
-        public bool GetSettingOrTrue(string section, string key)
-        {
-            string val = Data[section][key];
-            if (!(val is null))
-            {
-                return val.ToLower() == "true";
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find {0}:{1}, returning true", section, key);
-                return true;
-            }
-        }
-
-        public string GetSettingOrDefault(string section, string key, string _default)
-        {
-            string val = Data[section][key];
-            if (!(val is null))
-            {
-                return val;
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find {0}:{1}, returning {2}", section, key, _default);
-                return _default;
             }
         }
     }

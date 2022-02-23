@@ -27,8 +27,8 @@ namespace WSE2_Launcher
 
             // TODO set warband path to pwd ins
             string pwd = System.IO.Directory.GetCurrentDirectory();
-            WarbandPath = @"C:\Program Files (x86)\Steam\steamapps\common\MountBlade Warband";
-            WarbandPath = @"C:\Users\user\Desktop\Mount&Blade Warband";
+            //WarbandPath = @"C:\Program Files (x86)\Steam\steamapps\common\MountBlade Warband";
+            WarbandPath = @"C:\Users\john\Desktop\Mount&Blade Warband";
 
 
             // Initializes the modules select box
@@ -41,7 +41,7 @@ namespace WSE2_Launcher
             }
 
             // Sets the moduleSelectBox to default module, or Native
-            string defaultModule = Settings.GetSettingOrDefault("Launcher", "default_module", "Native");
+            string defaultModule = Settings.bDefaultModule.Get();
             InitializeModuleSelectBoxOrFirst(defaultModule);
         }
 
@@ -121,7 +121,7 @@ namespace WSE2_Launcher
 
             CLI_Options options = new CLI_Options();
             options.Module = selected.Name;
-            options.IntroDisabled = Settings.GetSettingOrFalse("Launcher", "intro_disabled");
+            options.IntroDisabled = Settings.bDisableIntro.Get();
         }
 
         private void moduleSelectBox_SelectedIndexChanged(object sender, EventArgs e)
