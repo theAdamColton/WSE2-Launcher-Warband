@@ -25,9 +25,14 @@ namespace WSE2_Launcher
             // TODO Languages
             //languageBox.Items.AddRange(new string[] { "Cesky", "English", "Deutsch", "Espanol", "Francais", "Magyar", "Polski", "Russkiy", "Turkce" });
             hideBloodBox.Checked = !Settings.bBlood.Get();
+            disableSoundBox.Checked = !Settings.bSound.Get();
+            disableMusicBox.Checked = !Settings.bMusic.Get();
             windowedBox.Checked = Settings.bWindowed.Get();
             disableIntroBox.Checked = Settings.bDisableIntro.Get();
             enableFpsCount.Checked = Settings.bShowFrameRate.Get();
+            disableDistanceFilterCheckBox.Checked = !Settings.bDistanceFilter.Get();
+            disableOcclusionFilterCheckBox.Checked = !Settings.bOcclusionFilter.Get();
+            disableHrtfCheckBox.Checked = !Settings.bHrtfFilter.Get();
         }
 
         /// <summary>
@@ -78,6 +83,31 @@ namespace WSE2_Launcher
         private void enableFpsCounter_CheckedChanged(object sender, EventArgs e)
         {
             Settings.bShowFrameRate.Set(enableFpsCount.Checked);
+        }
+
+        private void disableSoundBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.bSound.Set(!disableSoundBox.Checked);
+        }
+
+        private void disableMusicBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.bMusic.Set(!disableMusicBox.Checked);
+        }
+
+        private void disableDistanceFilterCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.bDistanceFilter.Set(!disableDistanceFilterCheckBox.Checked);
+        }
+
+        private void disableOcclusionFilterCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.bOcclusionFilter.Set(!disableOcclusionFilterCheckBox.Checked);
+        }
+
+        private void disableHrtfCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.bHrtfFilter.Set(!disableHrtfCheckBox.Checked);
         }
     }
 }

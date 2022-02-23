@@ -116,7 +116,7 @@ namespace WSE2_Launcher
         {
             // Saves this module as the default module to launch
             ModuleEntry selected = (ModuleEntry)moduleSelectBox.SelectedItem;
-            Settings.Data["Launcher"]["default_module"] = selected.Name;
+            Settings.bDefaultModule.Set(selected.ToString());
             Settings.WriteSettings();
 
             CLI_Options options = new CLI_Options();

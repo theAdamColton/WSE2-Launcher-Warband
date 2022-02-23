@@ -40,14 +40,13 @@ namespace WSE2_Launcher
             this.videoPage = new System.Windows.Forms.TabPage();
             this.textureBox = new System.Windows.Forms.CheckBox();
             this.windowedBox = new System.Windows.Forms.CheckBox();
-            this.usePixelShadersBox = new System.Windows.Forms.CheckBox();
             this.audioPage = new System.Windows.Forms.TabPage();
+            this.disableHrtfCheckBox = new System.Windows.Forms.CheckBox();
+            this.disableDistanceFilterCheckBox = new System.Windows.Forms.CheckBox();
+            this.disableOcclusionFilterCheckBox = new System.Windows.Forms.CheckBox();
             this.disableMusicBox = new System.Windows.Forms.CheckBox();
             this.disableSoundBox = new System.Windows.Forms.CheckBox();
-            this.soundVariationBox = new System.Windows.Forms.CheckBox();
             this.advancedPage = new System.Windows.Forms.TabPage();
-            this.singleThreadBox = new System.Windows.Forms.CheckBox();
-            this.enableEditBox = new System.Windows.Forms.CheckBox();
             this.Cancel = new WSE2_Launcher.ImageButton();
             this.okButton = new WSE2_Launcher.ImageButton();
             this.closeButton = new WSE2_Launcher.ImageButton();
@@ -55,7 +54,6 @@ namespace WSE2_Launcher
             this.gamePage.SuspendLayout();
             this.videoPage.SuspendLayout();
             this.audioPage.SuspendLayout();
-            this.advancedPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // settingsTabControl
@@ -140,7 +138,6 @@ namespace WSE2_Launcher
             // 
             this.videoPage.Controls.Add(this.textureBox);
             this.videoPage.Controls.Add(this.windowedBox);
-            this.videoPage.Controls.Add(this.usePixelShadersBox);
             this.videoPage.Location = new System.Drawing.Point(4, 22);
             this.videoPage.Name = "videoPage";
             this.videoPage.Padding = new System.Windows.Forms.Padding(3);
@@ -170,27 +167,52 @@ namespace WSE2_Launcher
             this.windowedBox.UseVisualStyleBackColor = true;
             this.windowedBox.CheckedChanged += new System.EventHandler(this.windowedBox_CheckedChanged);
             // 
-            // usePixelShadersBox
-            // 
-            this.usePixelShadersBox.AutoSize = true;
-            this.usePixelShadersBox.Location = new System.Drawing.Point(42, 56);
-            this.usePixelShadersBox.Name = "usePixelShadersBox";
-            this.usePixelShadersBox.Size = new System.Drawing.Size(112, 17);
-            this.usePixelShadersBox.TabIndex = 2;
-            this.usePixelShadersBox.Text = "Use Pixel Shaders";
-            this.usePixelShadersBox.UseVisualStyleBackColor = true;
-            // 
             // audioPage
             // 
+            this.audioPage.Controls.Add(this.disableHrtfCheckBox);
+            this.audioPage.Controls.Add(this.disableDistanceFilterCheckBox);
+            this.audioPage.Controls.Add(this.disableOcclusionFilterCheckBox);
             this.audioPage.Controls.Add(this.disableMusicBox);
             this.audioPage.Controls.Add(this.disableSoundBox);
-            this.audioPage.Controls.Add(this.soundVariationBox);
             this.audioPage.Location = new System.Drawing.Point(4, 22);
             this.audioPage.Name = "audioPage";
             this.audioPage.Size = new System.Drawing.Size(430, 335);
             this.audioPage.TabIndex = 2;
             this.audioPage.Text = "Audio";
             this.audioPage.UseVisualStyleBackColor = true;
+            // 
+            // disableHrtfCheckBox
+            // 
+            this.disableHrtfCheckBox.AutoSize = true;
+            this.disableHrtfCheckBox.Location = new System.Drawing.Point(42, 152);
+            this.disableHrtfCheckBox.Name = "disableHrtfCheckBox";
+            this.disableHrtfCheckBox.Size = new System.Drawing.Size(132, 17);
+            this.disableHrtfCheckBox.TabIndex = 5;
+            this.disableHrtfCheckBox.Text = "Disable HRTF Filtering";
+            this.disableHrtfCheckBox.UseVisualStyleBackColor = true;
+            this.disableHrtfCheckBox.CheckedChanged += new System.EventHandler(this.disableHrtfCheckBox_CheckedChanged);
+            // 
+            // disableDistanceFilterCheckBox
+            // 
+            this.disableDistanceFilterCheckBox.AutoSize = true;
+            this.disableDistanceFilterCheckBox.Location = new System.Drawing.Point(42, 128);
+            this.disableDistanceFilterCheckBox.Name = "disableDistanceFilterCheckBox";
+            this.disableDistanceFilterCheckBox.Size = new System.Drawing.Size(131, 17);
+            this.disableDistanceFilterCheckBox.TabIndex = 4;
+            this.disableDistanceFilterCheckBox.Text = "Disable Distance Filter";
+            this.disableDistanceFilterCheckBox.UseVisualStyleBackColor = true;
+            this.disableDistanceFilterCheckBox.CheckedChanged += new System.EventHandler(this.disableDistanceFilterCheckBox_CheckedChanged);
+            // 
+            // disableOcclusionFilterCheckBox
+            // 
+            this.disableOcclusionFilterCheckBox.AutoSize = true;
+            this.disableOcclusionFilterCheckBox.Location = new System.Drawing.Point(42, 57);
+            this.disableOcclusionFilterCheckBox.Name = "disableOcclusionFilterCheckBox";
+            this.disableOcclusionFilterCheckBox.Size = new System.Drawing.Size(141, 17);
+            this.disableOcclusionFilterCheckBox.TabIndex = 3;
+            this.disableOcclusionFilterCheckBox.Text = "Disable Audio Occlusion";
+            this.disableOcclusionFilterCheckBox.UseVisualStyleBackColor = true;
+            this.disableOcclusionFilterCheckBox.CheckedChanged += new System.EventHandler(this.disableOcclusionFilterCheckBox_CheckedChanged);
             // 
             // disableMusicBox
             // 
@@ -201,6 +223,7 @@ namespace WSE2_Launcher
             this.disableMusicBox.TabIndex = 2;
             this.disableMusicBox.Text = "Disable Music";
             this.disableMusicBox.UseVisualStyleBackColor = true;
+            this.disableMusicBox.CheckedChanged += new System.EventHandler(this.disableMusicBox_CheckedChanged);
             // 
             // disableSoundBox
             // 
@@ -211,47 +234,16 @@ namespace WSE2_Launcher
             this.disableSoundBox.TabIndex = 1;
             this.disableSoundBox.Text = "Disable Sound";
             this.disableSoundBox.UseVisualStyleBackColor = true;
-            // 
-            // soundVariationBox
-            // 
-            this.soundVariationBox.AutoSize = true;
-            this.soundVariationBox.Location = new System.Drawing.Point(42, 56);
-            this.soundVariationBox.Name = "soundVariationBox";
-            this.soundVariationBox.Size = new System.Drawing.Size(137, 17);
-            this.soundVariationBox.TabIndex = 0;
-            this.soundVariationBox.Text = "Enable Sound Variation";
-            this.soundVariationBox.UseVisualStyleBackColor = true;
+            this.disableSoundBox.CheckedChanged += new System.EventHandler(this.disableSoundBox_CheckedChanged);
             // 
             // advancedPage
             // 
-            this.advancedPage.Controls.Add(this.singleThreadBox);
-            this.advancedPage.Controls.Add(this.enableEditBox);
             this.advancedPage.Location = new System.Drawing.Point(4, 22);
             this.advancedPage.Name = "advancedPage";
             this.advancedPage.Size = new System.Drawing.Size(430, 335);
             this.advancedPage.TabIndex = 3;
             this.advancedPage.Text = "Advanced";
             this.advancedPage.UseVisualStyleBackColor = true;
-            // 
-            // singleThreadBox
-            // 
-            this.singleThreadBox.AutoSize = true;
-            this.singleThreadBox.Location = new System.Drawing.Point(41, 79);
-            this.singleThreadBox.Name = "singleThreadBox";
-            this.singleThreadBox.Size = new System.Drawing.Size(136, 17);
-            this.singleThreadBox.TabIndex = 1;
-            this.singleThreadBox.Text = "Force Single Threading";
-            this.singleThreadBox.UseVisualStyleBackColor = true;
-            // 
-            // enableEditBox
-            // 
-            this.enableEditBox.AutoSize = true;
-            this.enableEditBox.Location = new System.Drawing.Point(41, 55);
-            this.enableEditBox.Name = "enableEditBox";
-            this.enableEditBox.Size = new System.Drawing.Size(110, 17);
-            this.enableEditBox.TabIndex = 0;
-            this.enableEditBox.Text = "Enable Edit Mode";
-            this.enableEditBox.UseVisualStyleBackColor = true;
             // 
             // Cancel
             // 
@@ -338,8 +330,6 @@ namespace WSE2_Launcher
             this.videoPage.PerformLayout();
             this.audioPage.ResumeLayout(false);
             this.audioPage.PerformLayout();
-            this.advancedPage.ResumeLayout(false);
-            this.advancedPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -360,12 +350,11 @@ namespace WSE2_Launcher
         private System.Windows.Forms.ComboBox languageBox;
         private System.Windows.Forms.CheckBox textureBox;
         private System.Windows.Forms.CheckBox windowedBox;
-        private System.Windows.Forms.CheckBox usePixelShadersBox;
         private System.Windows.Forms.CheckBox disableMusicBox;
         private System.Windows.Forms.CheckBox disableSoundBox;
-        private System.Windows.Forms.CheckBox soundVariationBox;
-        private System.Windows.Forms.CheckBox singleThreadBox;
-        private System.Windows.Forms.CheckBox enableEditBox;
         private System.Windows.Forms.CheckBox disableIntroBox;
+        private System.Windows.Forms.CheckBox disableOcclusionFilterCheckBox;
+        private System.Windows.Forms.CheckBox disableDistanceFilterCheckBox;
+        private System.Windows.Forms.CheckBox disableHrtfCheckBox;
     }
 }
