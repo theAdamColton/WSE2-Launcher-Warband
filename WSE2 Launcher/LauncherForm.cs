@@ -2,7 +2,9 @@
 using ModuleHelper;
 using System;
 using System.Windows.Forms;
+using System.Diagnostics;
 using WSE2_CLI_Options;
+using System.IO;
 
 namespace WSE2_Launcher
 {
@@ -67,17 +69,6 @@ namespace WSE2_Launcher
             moduleSelectBox.SelectedIndex = i;
         }
 
-        //protected override void WndProc(ref Message m)
-        //{
-        //    base.WndProc(ref m);
-        //    //support dragging the window
-        //    return;
-        //    if (m.Msg == ApiHelper.WM_NCHITTEST && (int)m.Result == ApiHelper.HTCLIENT)
-        //    {
-        //        m.Result = new IntPtr(ApiHelper.HTCAPTION);
-        //    }
-        //}
-
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -116,12 +107,24 @@ namespace WSE2_Launcher
         {
             // Saves this module as the default module to launch
             ModuleEntry selected = (ModuleEntry)moduleSelectBox.SelectedItem;
-            Settings.bDefaultModule.Set(selected.ToString());
-            Settings.WriteSettings();
+
+            if (Settings.bDefaultModule.Get() != selected.ToString())
+            {
+                Settings.bDefaultModule.Set(selected.ToString());
+                Settings.WriteSettings();
+            }
 
             CLI_Options options = new CLI_Options();
             options.Module = selected.Name;
             options.IntroDisabled = Settings.bDisableIntro.Get();
+
+            string cli_options = options.ToString();
+
+            string bin_path = Path.Combine(WarbandPath, "mb_warband_wse2.exe");
+            Console.WriteLine("Excecuting command {0} {1}", bin_path, cli_options);
+
+            Process.Start(bin_path, cli_options);
+            Close();
         }
 
         private void moduleSelectBox_SelectedIndexChanged(object sender, EventArgs e)

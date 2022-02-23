@@ -13,13 +13,17 @@ namespace WSE2_CLI_Options
         public string Module;
         public string ConfigPath;
 
+        public string RenderOptions()
+        {
+            return this.ToString();
+        }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             if (IntroDisabled)
                 sb.Append(" --no-intro");
-            sb.Append(" --module" );
+            sb.Append(" --module ");
             sb.Append(Module);
 
             if (!(ConfigPath is null))
