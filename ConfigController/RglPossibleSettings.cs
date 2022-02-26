@@ -22,7 +22,8 @@ namespace ConfigController
             /// <summary>
             /// Converts string -> T
             /// </summary>
-            public abstract Func<string, T> StringToT {
+            public abstract Func<string, T> StringToT
+            {
                 get;
             }
 
@@ -54,7 +55,8 @@ namespace ConfigController
                     {
                         res = f(val);
                         return f(val);
-                    } catch (Exception e)
+                    }
+                    catch (Exception e)
                     {
                         Console.WriteLine("Error! Found {0}:{1} = {2}, but could not parse string to {3}. Returning {4}", section, key, val, typeof(T).ToString(), _default);
                         return _default;
@@ -76,7 +78,8 @@ namespace ConfigController
             public SettingDefaultTrue(IniData data, string section, string setting) : base(data, section, setting) { }
         }
 
-        public class SettingDefaultFalse : SettingDefaultTrue {
+        public class SettingDefaultFalse : SettingDefaultTrue
+        {
             public new bool Default = false;
             public SettingDefaultFalse(IniData data, string section, string setting) : base(data, section, setting) { }
         }
@@ -84,7 +87,8 @@ namespace ConfigController
         public class SettingDefaultString : bSetting<string>
         {
             public override Func<string, string> StringToT { get => s => s; }
-            public SettingDefaultString(IniData data, string section, string setting, string _default) : base(data, section, setting) {
+            public SettingDefaultString(IniData data, string section, string setting, string _default) : base(data, section, setting)
+            {
                 Default = _default;
             }
         }

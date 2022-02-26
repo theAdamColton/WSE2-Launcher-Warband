@@ -1,10 +1,10 @@
 ﻿using ConfigController;
 using ModuleHelper;
 using System;
-using System.Windows.Forms;
 using System.Diagnostics;
-using WSE2_CLI_Options;
 using System.IO;
+using System.Windows.Forms;
+using WSE2_CLI_Options;
 
 namespace WSE2_Launcher
 {
@@ -29,8 +29,12 @@ namespace WSE2_Launcher
 
             // TODO set warband path to pwd ins
             string pwd = System.IO.Directory.GetCurrentDirectory();
-            //WarbandPath = @"C:\Program Files (x86)\Steam\steamapps\common\MountBlade Warband";
-            WarbandPath = @"C:\Users\john\Desktop\Mount&Blade Warband";
+            WarbandPath = pwd;
+
+            if (!Directory.Exists(Path.Combine(WarbandPath, "Modules")))
+            {
+                MessageBox.Show("Could not find Modules directory. Are you sure that this launcher was placed in the Warband folder?");
+            }
 
 
             // Initializes the modules select box
