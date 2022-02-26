@@ -6,11 +6,11 @@ namespace WSE2_Launcher
 {
     public partial class ConfigForm : Form
     {
-        private RglSettings Settings;
+        private RglSettings rglSettings;
 
-        public ConfigForm(RglSettings settings)
+        public ConfigForm(RglSettings rglSettings)
         {
-            Settings = settings;
+            this.rglSettings = rglSettings;
 
             InitializeComponent();
             InitializeUI();
@@ -24,15 +24,15 @@ namespace WSE2_Launcher
         {
             // TODO Languages
             //languageBox.Items.AddRange(new string[] { "Cesky", "English", "Deutsch", "Espanol", "Francais", "Magyar", "Polski", "Russkiy", "Turkce" });
-            hideBloodBox.Checked = !Settings.bBlood.Get();
-            disableSoundBox.Checked = !Settings.bSound.Get();
-            disableMusicBox.Checked = !Settings.bMusic.Get();
-            windowedBox.Checked = Settings.bWindowed.Get();
-            disableIntroBox.Checked = Settings.bDisableIntro.Get();
-            enableFpsCount.Checked = Settings.bShowFrameRate.Get();
-            disableDistanceFilterCheckBox.Checked = !Settings.bDistanceFilter.Get();
-            disableOcclusionFilterCheckBox.Checked = !Settings.bOcclusionFilter.Get();
-            disableHrtfCheckBox.Checked = !Settings.bHrtfFilter.Get();
+            hideBloodBox.Checked = !rglSettings.bBlood.Get();
+            disableSoundBox.Checked = !rglSettings.bSound.Get();
+            disableMusicBox.Checked = !rglSettings.bMusic.Get();
+            windowedBox.Checked = rglSettings.bWindowed.Get();
+            disableIntroBox.Checked = rglSettings.bDisableIntro.Get();
+            enableFpsCount.Checked = rglSettings.bShowFrameRate.Get();
+            disableDistanceFilterCheckBox.Checked = !rglSettings.bDistanceFilter.Get();
+            disableOcclusionFilterCheckBox.Checked = !rglSettings.bOcclusionFilter.Get();
+            disableHrtfCheckBox.Checked = !rglSettings.bHrtfFilter.Get();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace WSE2_Launcher
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            Settings.WriteSettings();
+            rglSettings.WriteSettings();
             closeButton_Click(sender, e);
         }
 
@@ -67,47 +67,47 @@ namespace WSE2_Launcher
 
         private void hideBloodBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bBlood.Set(!hideBloodBox.Checked);
+            rglSettings.bBlood.Set(!hideBloodBox.Checked);
         }
 
         private void windowedBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bWindowed.Set(windowedBox.Checked);
+            rglSettings.bWindowed.Set(windowedBox.Checked);
         }
 
         private void disableIntroBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bDisableIntro.Set(disableIntroBox.Checked);
+            rglSettings.bDisableIntro.Set(disableIntroBox.Checked);
         }
 
         private void enableFpsCounter_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bShowFrameRate.Set(enableFpsCount.Checked);
+            rglSettings.bShowFrameRate.Set(enableFpsCount.Checked);
         }
 
         private void disableSoundBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bSound.Set(!disableSoundBox.Checked);
+            rglSettings.bSound.Set(!disableSoundBox.Checked);
         }
 
         private void disableMusicBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bMusic.Set(!disableMusicBox.Checked);
+            rglSettings.bMusic.Set(!disableMusicBox.Checked);
         }
 
         private void disableDistanceFilterCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bDistanceFilter.Set(!disableDistanceFilterCheckBox.Checked);
+            rglSettings.bDistanceFilter.Set(!disableDistanceFilterCheckBox.Checked);
         }
 
         private void disableOcclusionFilterCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bOcclusionFilter.Set(!disableOcclusionFilterCheckBox.Checked);
+            rglSettings.bOcclusionFilter.Set(!disableOcclusionFilterCheckBox.Checked);
         }
 
         private void disableHrtfCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.bHrtfFilter.Set(!disableHrtfCheckBox.Checked);
+            rglSettings.bHrtfFilter.Set(!disableHrtfCheckBox.Checked);
         }
     }
 }

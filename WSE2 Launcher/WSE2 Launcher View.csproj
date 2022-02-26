@@ -147,8 +147,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ILMergeOrder.txt" />
     <None Include="Resources\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ILMergeOrder.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

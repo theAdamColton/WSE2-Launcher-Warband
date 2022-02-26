@@ -13,7 +13,15 @@ namespace WSE2_Launcher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LauncherForm());
+            try
+            {
+                Application.Run(new LauncherForm());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Encountered error {0}", e);
+                Console.ReadLine();
+            }
         }
     }
 }
