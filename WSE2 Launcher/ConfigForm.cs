@@ -1,5 +1,6 @@
 ﻿using ConfigController;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace WSE2_Launcher
@@ -16,14 +17,21 @@ namespace WSE2_Launcher
             InitializeUI();
         }
 
+        // Language settings are handled as a special case
+        private string _lang_path = Path.Combine(new string[] { Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "AppData", "Roaming", "Mount&Blade Warband WSE2", "language.txt" });
+
         /// <summary>
         /// All of the UI elements should be initialized to their value in the RglSettings Settings object,
         /// as read from the ini file.
         /// </summary>
         private void InitializeUI()
         {
-            // TODO Languages
-            //languageBox.Items.AddRange(new string[] { "Cesky", "English", "Deutsch", "Espanol", "Francais", "Magyar", "Polski", "Russkiy", "Turkce" });
+            languageBox.Items.AddRange(new string[] { "en", });
+            if (File.Exists(_lang_path))
+            {
+                languageBox.SelectedItem = File.ReadAllText(_lang_path).Replace("\n", "");
+            }
+
             hideBloodBox.Checked = !rglSettings.bBlood.Get();
             disableSoundBox.Checked = !rglSettings.bSound.Get();
             disableMusicBox.Checked = !rglSettings.bMusic.Get();
@@ -57,6 +65,15 @@ namespace WSE2_Launcher
         private void okButton_Click(object sender, EventArgs e)
         {
             rglSettings.WriteSettings();
+
+            // TODO language settings are handled as a special case
+            // Tries to write to \AppData\Roaming\Mount&Blade Warband WSE2\language.txt
+            Console.WriteLine("Writing to lang file {0} {1}", _lang_path, languageBox.SelectedItem);
+            if (File.Exists(_lang_path))
+            {
+                File.WriteAllText(_lang_path, languageBox.SelectedItem.ToString());
+            }
+
             closeButton_Click(sender, e);
         }
 

@@ -25,7 +25,3 @@ The app is currently in testing mode, with a debugging terminal opening with the
 Add more ini settings that can be edited.
 
 Add language options to `\AppData\Roaming\Mount&Blade Warband WSE2\language.txt`
-
-### rgl config editor
-- Saves settings to the ini file at `C:\Users\<user>\Documents\Mount&Blade Warband WSE2\rgl_config.ini`, using Environment.SpecialFolder.UserProfile
-- Allows editing of settings that require game restart
