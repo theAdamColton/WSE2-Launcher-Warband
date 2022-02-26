@@ -24,4 +24,4 @@ The app is currently in testing mode, with a debugging terminal opening with the
 
 Add more ini settings that can be edited.
 
-Add language options to `\AppData\Roaming\Mount&Blade Warband WSE2\language.txt`
+Add more possible language options.
